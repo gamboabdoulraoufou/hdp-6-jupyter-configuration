@@ -62,22 +62,13 @@ npm install -g configurable-http-proxy
 ```sh
 /usr/local/bin/python3.5  -m pip install jupyterhub
 /usr/local/bin/python3.5  -m pip install "ipython[notebook]"
-yum install -y python-pip 
-pip install --upgrade pip
-yum install -y python-setuptools
-yum install python-devel.x86_64
-yum install gcc gcc-c++ make openssl-devel
-pip install py4j
-pip install "ipython[notebook]"
-
-
-/usr/local/bin/python3.5 -m pip install jupyterhub
-/usr/local/bin/python3.5 -m pip install "ipython[notebook]"
-yum install -y python-dev 
 yum install -y python-setuptools
 yum install -y build-essential
-yum install -y py4j
+yum install -y python-devel.x86_64
+yum install -y gcc gcc-c++ make openssl-devel
 yum install -y python-pip
+pip install --upgrade pip
+pip install py4j
 pip install "ipython[notebook]"
 
 ```
