@@ -51,13 +51,11 @@ wget https://bootstrap.pypa.io/get-pip.py
 chmod 777 get-pip.py
 /usr/local/bin/python3.5 get-pip.py
 
-# install nodejs
-yum install -y npm 
-yum install -y nodejs-legacy # ko
-
-# configure proxy
+# install nodejs 
+rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+yum install -y npm
+yum install -y git
 npm install -g configurable-http-proxy
-
 ```
 
 > 2-2- Install JupyterHub and Jupyter for python 3 kernel
@@ -70,6 +68,16 @@ yum install -y python-setuptools
 yum install python-devel.x86_64
 yum install gcc gcc-c++ make openssl-devel
 pip install py4j
+pip install "ipython[notebook]"
+
+
+/usr/local/bin/python3.5 -m pip install jupyterhub
+/usr/local/bin/python3.5 -m pip install "ipython[notebook]"
+yum install -y python-dev 
+yum install -y python-setuptools
+yum install -y build-essential
+yum install -y py4j
+yum install -y python-pip
 pip install "ipython[notebook]"
 
 ```
@@ -131,6 +139,8 @@ c.JupyterHub.extra_log_file = '/var/log/jupyterhub.log'
 # specify users and admin
 c.Authenticator.whitelist = {'test'}
 c.Authenticator.admin_users = {'test'}
+
+c.Spawner.cmd = '/usr/local/bin/jupyterhub-singleuser'
 
 ```
 
