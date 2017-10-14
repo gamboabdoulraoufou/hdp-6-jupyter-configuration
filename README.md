@@ -90,7 +90,8 @@ openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -nodes -days 36
 
 > 3-3- Create cookie secret
 ```sh
-openssl rand -base64 2048 > /usr/local/jupyter_conf/cookie_secret
+#openssl rand -base64 2048 > /usr/local/jupyter_conf/cookie_secret
+openssl rand -hex 32 > /usr/local/jupyter_conf/cookie_secret
 sudo chmod a-srwx /usr/local/jupyter_conf/cookie_secret
 
 ```
