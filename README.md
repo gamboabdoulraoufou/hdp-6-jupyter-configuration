@@ -125,7 +125,7 @@ vi /usr/local/jupyter_conf/jupyterhub_config.py
 c = get_config()
 # IP and Port
 c.JupyterHub.ip = '192.168.0.92' # IP local
-c.JupyterHub.port = 9083
+c.JupyterHub.port = 9084
 # Security - SSL
 c.JupyterHub.ssl_key = '/usr/local/jupyter_conf/key.pem'
 c.JupyterHub.ssl_cert = '/usr/local/jupyter_conf/cert.pem'
@@ -157,7 +157,7 @@ cat <<EOF | sudo tee /usr/local/share/jupyter/kernels/pyspark/kernel.json
  "argv": [
   "/usr/local/anaconda2/bin/python",
   "-m",
-  "IPython.kernel",
+  "ipykernel"
   "-f",
   "{connection_file}"
  ],
@@ -165,7 +165,7 @@ cat <<EOF | sudo tee /usr/local/share/jupyter/kernels/pyspark/kernel.json
   "SPARK_HOME": "/hadoop/usr/hdp/2.5.6.0-40/spark",
   "PYTHONPATH": "/hadoop/usr/hdp/2.5.6.0-40/spark/python/:/hadoop/usr/hdp/2.5.6.0-40/spark/python/lib/py4j-0.9-src.zip",
   "PYTHONSTARTUP": "/hadoop/usr/hdp/2.5.6.0-40/spark/python/pyspark/shell.py",
-  "PYSPARK_SUBMIT_ARGS": "--master yarn-client"
+  "PYSPARK_SUBMIT_ARGS": "--master yarn-client pyspark-shell"
  }
 }
 EOF
@@ -203,8 +203,13 @@ EOF
 
 > Configure crontab to run jupyter after reboot
 ```sh
-@reboot nohup sudo /usr/local/bin/python3.5 -m jupyterhub -f /usr/local/jupyter_conf/jupyterhub_config.py &
+crontab -e
 
+# Add the following line
+#### START ####
+# start jupyter
+@reboot nohup sudo /usr/local/bin/python3.5 -m jupyterhub -f /usr/local/jupyter_conf/jupyterhub_config.py &
+#### END ####
 ```
 
 __Go to https://IP or your.host.com and enjoy!__
