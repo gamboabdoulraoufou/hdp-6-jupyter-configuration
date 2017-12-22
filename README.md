@@ -233,7 +233,7 @@ source /etc/profile.d/maven.sh
 mvn -version 
 ```
 
-> Configure SBT
+> Install and configure SBT
 
 ```sh 
 # get SBT on yum repo 
@@ -244,6 +244,13 @@ sudo yum -y install sbt
 
 ```
 
+> Install and configure SBT
+
+```sh
+cd ~
+wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.rpm
+sudo yum install scala-2.11.8.rpm
+```
 
 __Go to https://IP or your.host.com and enjoy!__
 
