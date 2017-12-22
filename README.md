@@ -206,5 +206,32 @@ crontab -e
 #### END ####
 ```
 
+> Configure Maven
+```sh
+# go to installation folder
+cd /usr/local
+
+# download maven
+wget http://www-eu.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+
+# unzip file
+tar xzf apache-maven-3.5.2-bin.tar.gz
+
+# create sym link for maven
+ln -s apache-maven-3.5.2  maven
+
+# configure environment variables
+vi /etc/profile.d/maven.sh
+
+export MAVEN_HOME=/usr/local/maven
+export PATH=${MAVEN_HOME}/bin:${PATH}
+
+# load env variables
+source /etc/profile.d/maven.sh
+
+# check maven
+mvn -version 
+```
+
 __Go to https://IP or your.host.com and enjoy!__
 
