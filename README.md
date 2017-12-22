@@ -233,5 +233,17 @@ source /etc/profile.d/maven.sh
 mvn -version 
 ```
 
+> Configure SBT
+
+```sh 
+# get SBT on yum repo 
+curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
+
+# install SBT
+sudo yum -y install sbt
+
+```
+
+
 __Go to https://IP or your.host.com and enjoy!__
 
