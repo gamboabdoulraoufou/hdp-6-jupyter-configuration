@@ -73,6 +73,7 @@ yum install -y python-pip
 pip install --upgrade pip
 pip install py4j
 pip install "ipython[notebook]"
+pip install kafka-python
 
 ```
 
