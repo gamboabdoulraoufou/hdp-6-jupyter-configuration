@@ -74,7 +74,8 @@ pip install --upgrade pip
 pip install py4j
 pip install "ipython[notebook]"
 pip install kafka-python
-
+/usr/local/anaconda2/bin/python -m pip install google-compute-engine
+pip install boto
 ```
 
 > 3- Configure Jupyter 
